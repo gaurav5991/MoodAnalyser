@@ -1,5 +1,6 @@
 package com.moodanalyser;
 
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -10,5 +11,20 @@ public class MoodAnalyserTest
     {
         MoodAnalyser analyser = new MoodAnalyser();
         analyser.printWelcomeMessage();
+    }
+
+    @Test
+    public void givenMessage_When_Sad_shouldReturn_Sad()
+    {
+        MoodAnalyser analyser = new MoodAnalyser();
+        String mood = analyser.analyseMood("Its a Sad Message");
+        Assert.assertEquals("SAD",mood);
+    }
+
+    @Test
+    public void givenMessage_When_not_Sad_shouldReturnHappy() {
+        MoodAnalyser analyser = new MoodAnalyser();
+        String mood = analyser.analyseMood("Its a Happy Message");
+        Assert.assertEquals("HAPPY",mood);
     }
 }
